@@ -101,7 +101,7 @@ class Formatter {
 		$matches = $this->getPropertyMatches();
 
 		foreach ($matches as $property_type => $fields) {
-			foreach ($fields as $field => $match) {
+			foreach ($fields as $field => $match) {              
 				$label = $this->getFieldLabel($property_type, $field);
 				if (elgg_is_empty($label)) {
 					continue;
@@ -163,16 +163,16 @@ class Formatter {
 							$property_values = $this->entity->$field;
 							break;
 
-						case 'annotations' :
-							$property_values = [];
-							$annotations = $this->entity->getAnnotations([
-								'annotation_names' => $field,
-								'limit' => 0,
-							]);
-							foreach ($annotations as $annotation) {
-								$property_values[] = $annotation->value;
-							}
-							break;
+						// case 'annotations' :
+						// 	$property_values = [];
+						// 	$annotations = $this->entity->getAnnotations([
+						// 		'annotation_names' => $field,
+						// 		'limit' => 0,
+						// 	]);
+						// 	foreach ($annotations as $annotation) {
+						// 		$property_values[] = $annotation->value;
+						// 	}
+						// 	break;
 
 						case 'private_settings' :
 							$property_values = $this->entity->getPrivateSetting($field);

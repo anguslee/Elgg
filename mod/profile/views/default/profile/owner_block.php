@@ -58,7 +58,6 @@ echo <<<HTML
 
 <div id="profile-owner-block">
 	$icon
-	$content_menu
 	$admin_links
 </div>
 

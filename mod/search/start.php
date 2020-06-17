@@ -20,6 +20,13 @@ function search_init() {
 	elgg_register_plugin_hook_handler('search:format', 'entity', \Elgg\Search\FormatComentEntityHook::class);
 
 	elgg_register_plugin_hook_handler('view_vars', 'output/tag', 'search_output_tag');
+
+    elgg_register_plugin_hook_handler('search:config', 'type_subtype_pairs', 'search_output_entity_types');
+}
+
+function search_output_entity_types(\Elgg\Hook $hook) {
+    $value = $hook->getValue();
+    return array('user' => $value['user']);
 }
 
 /**
